@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross env NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test prisma migrate dev && jest -i",
-    "dev": "nodemon src/server.ts"
+    "test": "dotenv -e .env.test prisma migrate dev && prisma db seed &&  cross-env NODE_OPTIONS=--experimental-vm-modules  dotenv -e .env.test jest -i",
+    "dev": "nodemon src/server.ts",
+    "start":"npx prisma migrate dev"
   },
 
   "prisma": {
